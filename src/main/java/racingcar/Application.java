@@ -19,6 +19,7 @@ public class Application {
         String number = Console.readLine();
         int count = Integer.parseInt(number);
 
+        System.out.println("\n실행 결과");
         Race race = new Race(cars);
         race.play(count);
     }
