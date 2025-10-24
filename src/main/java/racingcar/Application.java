@@ -17,10 +17,22 @@ public class Application {
                 .toList();
         System.out.println("시도할 횟수는 몇 회인가요?");
         String number = Console.readLine();
-        int count = Integer.parseInt(number);
+        int count = checkNumber(number);
 
         System.out.println("\n실행 결과");
         Race race = new Race(cars);
         race.play(count);
+    }
+
+    private static int checkNumber(String input) {
+        try {
+            int number = Integer.parseInt(input);
+            if (number <= 0) {
+                throw new IllegalArgumentException("시도 횟수는 1 이상의 정수여야 합니다.");
+            }
+            return number;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("시도 횟수는 숫자로만 입력해야 합니다.");
+        }
     }
 }
