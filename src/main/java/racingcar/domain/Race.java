@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +11,7 @@ public class Race {
         this.cars = cars;
     }
 
-    public void play(int count) {
+    public List<String> play(int count) {
         for (int i = 0; i < count; i++) {
             for (Car car : cars) {
                 int randomNumber = Randoms.pickNumberInRange(0, 9);
@@ -20,8 +19,7 @@ public class Race {
             }
             printRacing();
         }
-        List<String> winners = findWinner();
-        printRacingResult(winners);
+        return findWinner();
     }
 
     private void printRacing() {
@@ -52,9 +50,5 @@ public class Race {
             }
         }
         return max;
-    }
-
-    private void printRacingResult(List<String> winners) {
-        System.out.print("최종 우승자 : " + String.join(", ", winners));
     }
 }
