@@ -1,5 +1,7 @@
 package racingcar.View;
 
+import racingcar.domain.Car;
+import racingcar.domain.Race;
 import java.util.List;
 
 public class View {
@@ -30,7 +32,15 @@ public class View {
         outputView.print(START_MESSAGE);
     }
 
-    public void printWinners(List<String> winners) {
-        outputView.print(WINNER_MESSAGE + String.join(", ", winners));
+    public void printWinners(Race race) {
+        List<String> winners = race.findWinner();
+        System.out.println(WINNER_MESSAGE + String.join(", ", winners));
+    }
+
+    public void printRaceProgress(Race race) {
+        for (Car car : race.getCars()) {
+            System.out.println(car.getName() + " : " + "-".repeat(car.getValue()));
+        }
+        System.out.println();
     }
 }

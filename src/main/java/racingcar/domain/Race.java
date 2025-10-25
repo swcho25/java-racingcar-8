@@ -11,25 +11,14 @@ public class Race {
         this.cars = cars;
     }
 
-    public List<String> play(int count) {
-        for (int i = 0; i < count; i++) {
-            for (Car car : cars) {
-                int randomNumber = Randoms.pickNumberInRange(0, 9);
-                car.move(randomNumber);
-            }
-            printRacing();
-        }
-        return findWinner();
-    }
-
-    private void printRacing() {
+    public void playOneRound() {
         for (Car car : cars) {
-            System.out.println(car.getName() + " : " + "-".repeat(car.getValue()));
+            int random = Randoms.pickNumberInRange(0, 9);
+            car.move(random);
         }
-        System.out.println();
     }
 
-    private List<String> findWinner() {
+    public List<String> findWinner() {
         int maxValue = getMaxValue();
         List<String> winners = new ArrayList<>();
 
@@ -50,5 +39,9 @@ public class Race {
             }
         }
         return max;
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 }

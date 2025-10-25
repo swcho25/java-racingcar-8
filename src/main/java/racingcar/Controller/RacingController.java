@@ -24,7 +24,10 @@ public class RacingController {
                 .toList();
         int count = Validator.checkNumber(number);
         Race race = new Race(cars);
-        List<String> winners = race.play(count);
-        view.printWinners(winners);
+        for (int i = 0; i < count; i++) {
+            race.playOneRound();
+            view.printRaceProgress(race);
+        }
+        view.printWinners(race);
     }
 }
