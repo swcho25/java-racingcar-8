@@ -5,6 +5,7 @@ import racingcar.View.InputView;
 import racingcar.View.OutputView;
 import racingcar.View.View;
 
+/** 프로그램 실행의 진입점 */
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
